@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>127个超级实用的JavaScript 代码片段，你千万要收藏好（中） | duangdong随笔</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/logo.png">
+    <link rel="manifest" href="/manifest.json">
+    <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?0088ce24040b03f2947322ab31d23414";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+  </script>
+    <script>
+  var _hmt = _hmt || [];
+  _hmt.push(['_requirePlugin', 'UrlChangeTracker', {
+    shouldTrackUrlChange: function (newPath, oldPath) {
+      newPath = newPath.split('#')[0];
+      oldPath = oldPath.split('#')[0];
+      return newPath != oldPath;
+    }}
+  ]);
+  </script>
+    <meta name="description" content="前端相关知识归纳总结">
+    <meta name="keywords" content="qd-blog,js,vuepress,leetcode,react,react进阶,css,js进阶,react性能优化,js设计模式">
+    
+    <link rel="preload" href="/assets/css/0.styles.a427ee9b.css" as="style"><link rel="preload" href="/assets/js/app.69b8f0a4.js" as="script"><link rel="preload" href="/assets/js/2.e21ead49.js" as="script"><link rel="preload" href="/assets/js/37.1c9f29e4.js" as="script"><link rel="prefetch" href="/assets/js/10.ba23573b.js"><link rel="prefetch" href="/assets/js/100.97f66efe.js"><link rel="prefetch" href="/assets/js/101.fa79323f.js"><link rel="prefetch" href="/assets/js/102.a93b6811.js"><link rel="prefetch" href="/assets/js/103.625b6b74.js"><link rel="prefetch" href="/assets/js/104.d485a579.js"><link rel="prefetch" href="/assets/js/105.38db7bfb.js"><link rel="prefetch" href="/assets/js/106.d6f5607d.js"><link rel="prefetch" href="/assets/js/107.eb8f8764.js"><link rel="prefetch" href="/assets/js/108.d5e7f95c.js"><link rel="prefetch" href="/assets/js/109.d4e4209c.js"><link rel="prefetch" href="/assets/js/11.4655383c.js"><link rel="prefetch" href="/assets/js/110.48a6dc9b.js"><link rel="prefetch" href="/assets/js/12.9b1188c1.js"><link rel="prefetch" href="/assets/js/13.b4d71ad2.js"><link rel="prefetch" href="/assets/js/14.c8e31c0d.js"><link rel="prefetch" href="/assets/js/15.dbdb12e8.js"><link rel="prefetch" href="/assets/js/16.a4b51719.js"><link rel="prefetch" href="/assets/js/17.d04cd903.js"><link rel="prefetch" href="/assets/js/18.dc328bb6.js"><link rel="prefetch" href="/assets/js/19.59ec477b.js"><link rel="prefetch" href="/assets/js/20.46438fd2.js"><link rel="prefetch" href="/assets/js/21.1f236c7d.js"><link rel="prefetch" href="/assets/js/22.b1311721.js"><link rel="prefetch" href="/assets/js/23.46367b14.js"><link rel="prefetch" href="/assets/js/24.15dcd53e.js"><link rel="prefetch" href="/assets/js/25.8294250f.js"><link rel="prefetch" href="/assets/js/26.7340b60a.js"><link rel="prefetch" href="/assets/js/27.7822de41.js"><link rel="prefetch" href="/assets/js/28.a0e67315.js"><link rel="prefetch" href="/assets/js/29.55f55536.js"><link rel="prefetch" href="/assets/js/3.c97c1fef.js"><link rel="prefetch" href="/assets/js/30.a39e4e16.js"><link rel="prefetch" href="/assets/js/31.8f66e0d8.js"><link rel="prefetch" href="/assets/js/32.54bf74e4.js"><link rel="prefetch" href="/assets/js/33.da9a14b5.js"><link rel="prefetch" href="/assets/js/34.c3a12cd3.js"><link rel="prefetch" href="/assets/js/35.6d6d2bee.js"><link rel="prefetch" href="/assets/js/36.1853c91e.js"><link rel="prefetch" href="/assets/js/38.fa9d01d4.js"><link rel="prefetch" href="/assets/js/39.9d76c693.js"><link rel="prefetch" href="/assets/js/4.8f6f0475.js"><link rel="prefetch" href="/assets/js/40.d08d623d.js"><link rel="prefetch" href="/assets/js/41.91b99294.js"><link rel="prefetch" href="/assets/js/42.811bc018.js"><link rel="prefetch" href="/assets/js/43.01f01609.js"><link rel="prefetch" href="/assets/js/44.f5aed78c.js"><link rel="prefetch" href="/assets/js/45.f74ae4d3.js"><link rel="prefetch" href="/assets/js/46.65ac34b7.js"><link rel="prefetch" href="/assets/js/47.7ced76ed.js"><link rel="prefetch" href="/assets/js/48.4ee7b3f5.js"><link rel="prefetch" href="/assets/js/49.af967d01.js"><link rel="prefetch" href="/assets/js/5.8b87f02a.js"><link rel="prefetch" href="/assets/js/50.eb38b705.js"><link rel="prefetch" href="/assets/js/51.ee0a9519.js"><link rel="prefetch" href="/assets/js/52.e56b8bcd.js"><link rel="prefetch" href="/assets/js/53.b5bb4bc6.js"><link rel="prefetch" href="/assets/js/54.16393f0e.js"><link rel="prefetch" href="/assets/js/55.f4a398e9.js"><link rel="prefetch" href="/assets/js/56.e39eae4a.js"><link rel="prefetch" href="/assets/js/57.72330ff5.js"><link rel="prefetch" href="/assets/js/58.8297b11c.js"><link rel="prefetch" href="/assets/js/59.178d8a13.js"><link rel="prefetch" href="/assets/js/6.2f86309f.js"><link rel="prefetch" href="/assets/js/60.71d54701.js"><link rel="prefetch" href="/assets/js/61.ab727f41.js"><link rel="prefetch" href="/assets/js/62.8a43d044.js"><link rel="prefetch" href="/assets/js/63.78218eb4.js"><link rel="prefetch" href="/assets/js/64.c6b330db.js"><link rel="prefetch" href="/assets/js/65.00816eb3.js"><link rel="prefetch" href="/assets/js/66.0a003ca7.js"><link rel="prefetch" href="/assets/js/67.d14b5ae2.js"><link rel="prefetch" href="/assets/js/68.22734564.js"><link rel="prefetch" href="/assets/js/69.7859fbd5.js"><link rel="prefetch" href="/assets/js/7.f1cc41de.js"><link rel="prefetch" href="/assets/js/70.9682f7a2.js"><link rel="prefetch" href="/assets/js/71.8c2448ee.js"><link rel="prefetch" href="/assets/js/72.4a598c93.js"><link rel="prefetch" href="/assets/js/73.1841194b.js"><link rel="prefetch" href="/assets/js/74.a7be3965.js"><link rel="prefetch" href="/assets/js/75.873391ae.js"><link rel="prefetch" href="/assets/js/76.8d36425a.js"><link rel="prefetch" href="/assets/js/77.004070b2.js"><link rel="prefetch" href="/assets/js/78.4ef19ec7.js"><link rel="prefetch" href="/assets/js/79.a23e245b.js"><link rel="prefetch" href="/assets/js/8.940f737b.js"><link rel="prefetch" href="/assets/js/80.ee65348b.js"><link rel="prefetch" href="/assets/js/81.4b9a7975.js"><link rel="prefetch" href="/assets/js/82.39647dc0.js"><link rel="prefetch" href="/assets/js/83.ccc4d33b.js"><link rel="prefetch" href="/assets/js/84.4693b3f7.js"><link rel="prefetch" href="/assets/js/85.394ea97a.js"><link rel="prefetch" href="/assets/js/86.86b23ff0.js"><link rel="prefetch" href="/assets/js/87.b851ab54.js"><link rel="prefetch" href="/assets/js/88.5b34fdad.js"><link rel="prefetch" href="/assets/js/89.cf7a6c63.js"><link rel="prefetch" href="/assets/js/9.5791bb04.js"><link rel="prefetch" href="/assets/js/90.a4606c25.js"><link rel="prefetch" href="/assets/js/91.7fd67440.js"><link rel="prefetch" href="/assets/js/92.8c9247d5.js"><link rel="prefetch" href="/assets/js/93.7adf8119.js"><link rel="prefetch" href="/assets/js/94.8b1f6ba8.js"><link rel="prefetch" href="/assets/js/95.91458090.js"><link rel="prefetch" href="/assets/js/96.639b2203.js"><link rel="prefetch" href="/assets/js/97.6fa85ae1.js"><link rel="prefetch" href="/assets/js/98.0f8ac38d.js"><link rel="prefetch" href="/assets/js/99.57624a8e.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.a427ee9b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">duangdong随笔</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="JS" class="dropdown-title"><span class="title">JS</span> <span class="arrow down"></span></button> <button type="button" aria-label="JS" class="mobile-dropdown-title"><span class="title">JS</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          js基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/javascript/2-代码片段/代码片段-2.html" class="nav-link">
+  《js代码片段》
+</a></li><li class="dropdown-subitem"><a href="/javascript/3-常用正则/emoji.html" class="nav-link">
+  《常用正则》
+</a></li><li class="dropdown-subitem"><a href="/javascript/4-常见问题/qa.html" class="nav-link">
+  《常用问题》
+</a></li><li class="dropdown-subitem"><a href="/javascript/1-重要类型/Map.html" class="nav-link">
+  《js重要类型》
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/c3/" class="nav-link">
+  CSS
+</a></div><div class="nav-item"><a href="/visual/" class="nav-link">
+  可视化
+</a></div><div class="nav-item"><a href="/skill/" class="nav-link">
+  开发技巧
+</a></div><div class="nav-item"><a href="/vue/" class="nav-link">
+  Vue
+</a></div><div class="nav-item"><a href="/angular/" class="nav-link">
+  Angular
+</a></div><div class="nav-item"><a href="/mini-program/" class="nav-link">
+  小程序
+</a></div><div class="nav-item"><a href="/other/" class="nav-link">
+  随笔
+</a></div><div class="nav-item"><a href="https://link.qdzhou.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Home
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="JS" class="dropdown-title"><span class="title">JS</span> <span class="arrow down"></span></button> <button type="button" aria-label="JS" class="mobile-dropdown-title"><span class="title">JS</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          js基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/javascript/2-代码片段/代码片段-2.html" class="nav-link">
+  《js代码片段》
+</a></li><li class="dropdown-subitem"><a href="/javascript/3-常用正则/emoji.html" class="nav-link">
+  《常用正则》
+</a></li><li class="dropdown-subitem"><a href="/javascript/4-常见问题/qa.html" class="nav-link">
+  《常用问题》
+</a></li><li class="dropdown-subitem"><a href="/javascript/1-重要类型/Map.html" class="nav-link">
+  《js重要类型》
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/c3/" class="nav-link">
+  CSS
+</a></div><div class="nav-item"><a href="/visual/" class="nav-link">
+  可视化
+</a></div><div class="nav-item"><a href="/skill/" class="nav-link">
+  开发技巧
+</a></div><div class="nav-item"><a href="/vue/" class="nav-link">
+  Vue
+</a></div><div class="nav-item"><a href="/angular/" class="nav-link">
+  Angular
+</a></div><div class="nav-item"><a href="/mini-program/" class="nav-link">
+  小程序
+</a></div><div class="nav-item"><a href="/other/" class="nav-link">
+  随笔
+</a></div><div class="nav-item"><a href="https://link.qdzhou.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Home
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/javascript/" aria-current="page" class="sidebar-link">js</a></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>1-重要类型</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>2-代码片段</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/javascript/2-代码片段/代码片段-2.html" class="sidebar-link">实用的JavaScript 代码片段，你千万要收藏好（上）</a></li><li><a href="/javascript/2-代码片段/代码片段-3.html" class="active sidebar-link">127个超级实用的JavaScript 代码片段，你千万要收藏好（中）</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>3-常用正则</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>4-tools</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>PWA</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>webSocket</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>web性能优化</span> <span class="arrow right"></span></p> <!----></section></li><li><a href="/javascript/使用.html" class="sidebar-link">开发中经常遇到的JavaScript问题整理(超实用)</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="_127个超级实用的javascript-代码片段-你千万要收藏好-中"><a href="#_127个超级实用的javascript-代码片段-你千万要收藏好-中" class="header-anchor">#</a> 127个超级实用的JavaScript 代码片段，你千万要收藏好（中）</h2> <h1 id="_46、gettype"><a href="#_46、gettype" class="header-anchor">#</a> <strong>46、getType</strong></h1> <p>此代码段可用于获取值的类型。</p> <div class="language- extra-class"><pre class="language-text"><code>const getType = v =&gt;  v === undefined ? 'undefined' : v === null ? 'null' : v.constructor.name.toLowerCase();
+getType(new Set([1, 2, 3])); // 'set'
+</code></pre></div><h1 id="_47、hasclassi"><a href="#_47、hasclassi" class="header-anchor">#</a> <strong>47、hasClassi</strong></h1> <p>此代码段检查元素是否具有特定类。</p> <div class="language- extra-class"><pre class="language-text"><code>const hasClass = (el, className) =&gt; el.classList.contains(className);hasClass(document.querySelector('p.special'), 'special'); // true
+</code></pre></div><h1 id="_48、head"><a href="#_48、head" class="header-anchor">#</a> <strong>48、head</strong></h1> <p>此代码段返回head列表的 。</p> <div class="language- extra-class"><pre class="language-text"><code>const head = arr =&gt; arr[0];
+head([1, 2, 3]); // 1
+</code></pre></div><h1 id="_49、hide"><a href="#_49、hide" class="header-anchor">#</a> <strong>49、hide</strong></h1> <p>此代码段可用于隐藏指定的所有元素。</p> <div class="language- extra-class"><pre class="language-text"><code>const hide = (...el) =&gt; [...el].forEach(e =&gt; (e.style.display = 'none'));
+hide(document.querySelectorAll('img')); // Hides all &lt;img&gt; elements on the page
+</code></pre></div><h1 id="_50、httpsredirect"><a href="#_50、httpsredirect" class="header-anchor">#</a> <strong>50、httpsRedirect</strong></h1> <p>此代码段可用于在特定域中从 HTTP 重定向到 HTTPS。</p> <div class="language- extra-class"><pre class="language-text"><code>const httpsRedirect = () =&gt; {  if (location.protocol !== 'https:') location.replace('https://' + location.href.split('//')[1]);};
+httpsRedirect(); // If you are on http://mydomain.com, you are redirected to https://mydomain.com
+</code></pre></div><h1 id="_51、indexofall"><a href="#_51、indexofall" class="header-anchor">#</a> <strong>51、indexOfAll</strong></h1> <p>此代码段可用于获取数组中某个值的所有索引，如果该值未包含在其中，则返回一个空数组。</p> <div class="language- extra-class"><pre class="language-text"><code>const indexOfAll = (arr, val) =&gt; arr.reduce((acc, el, i) =&gt; (el === val ? [...acc, i] : acc), []);
+indexOfAll([1, 2, 3, 1, 2, 3], 1); // [0,3]indexOfAll([1, 2, 3], 4); // []
+</code></pre></div><h1 id="_52、initial"><a href="#_52、initial" class="header-anchor">#</a> <strong>52、initial</strong></h1> <p>此代码段返回数组中除最后一个元素之外的所有元素。</p> <div class="language- extra-class"><pre class="language-text"><code>const initial = arr =&gt; arr.slice(0, 1);
+initial([1, 2, 3]); // [1,2]const initial = arr =&gt; arr.slice(0, 1);initial([1, 2, 3]); // [1,2]
+</code></pre></div><h1 id="_53、insertafter"><a href="#_53、insertafter" class="header-anchor">#</a> <strong>53、insertAfter</strong></h1> <p>此代码段可用于在特定元素的末尾插入 HTML 字符串。</p> <div class="language- extra-class"><pre class="language-text"><code>const insertAfter = (el, htmlString) =&gt; el.insertAdjacentHTML('afterend', htmlString);
+insertAfter(document.getElementById('myId'), '&lt;p&gt;after&lt;/p&gt;'); // &lt;div id=&quot;myId&quot;&gt;...&lt;/div&gt; &lt;p&gt;after&lt;/p&gt;
+</code></pre></div><h1 id="_54、insertbefore"><a href="#_54、insertbefore" class="header-anchor">#</a> <strong>54、insertBefore</strong></h1> <p>此代码段可用于在特定元素之前插入 HTML 字符串。</p> <div class="language- extra-class"><pre class="language-text"><code>const insertBefore = (el, htmlString) =&gt; el.insertAdjacentHTML('beforebegin', htmlString);
+insertBefore(document.getElementById('myId'), '&lt;p&gt;before&lt;/p&gt;'); // &lt;p&gt;before&lt;/p&gt; &lt;div id=&quot;myId&quot;&gt;...&lt;/div&gt;
+</code></pre></div><h1 id="_55、intersection"><a href="#_55、intersection" class="header-anchor">#</a> <strong>55、intersection</strong></h1> <p>此代码段可用于获取包含在其他两个数组中的元素的数组。</p> <div class="language- extra-class"><pre class="language-text"><code>const intersection = (a, b) =&gt; {  const s = new Set(b);  return a.filter(x =&gt; s.has(x));};
+intersection([1, 2, 3], [4, 3, 2]); // [2, 3]
+</code></pre></div><h1 id="_56、intersectionby"><a href="#_56、intersectionby" class="header-anchor">#</a> <strong>56、intersectionBy</strong></h1> <p>在对两个数组的每个元素执行特定函数后，此代码段可用于返回存在于两个数组中的元素列表。</p> <div class="language- extra-class"><pre class="language-text"><code>const intersectionBy = (a, b, fn) =&gt; {  const s = new Set(b.map(fn));  return a.filter(x =&gt; s.has(fn(x)));};
+intersectionBy([2.1, 1.2], [2.3, 3.4], Math.floor); // [2.1]
+</code></pre></div><h1 id="_57、intersectionwith"><a href="#_57、intersectionwith" class="header-anchor">#</a> <strong>57、intersectionWith</strong></h1> <p>此代码段可用于通过使用比较器函数返回存在于两个数组中的元素列表。</p> <div class="language- extra-class"><pre class="language-text"><code>const intersectionWith = (a, b, comp) =&gt; a.filter(x =&gt; b.findIndex(y =&gt; comp(x, y)) !== 1);
+intersectionWith([1, 1.2, 1.5, 3, 0], [1.9, 3, 0, 3.9], (a, b) =&gt; Math.round(a) === Math.round(b)); // [1.5, 3, 0]
+</code></pre></div><h1 id="_58、is"><a href="#_58、is" class="header-anchor">#</a> <strong>58、is</strong></h1> <p>此代码段可用于检查值是否属于特定类型。</p> <div class="language- extra-class"><pre class="language-text"><code>const is = (type, val) =&gt; ![, null].includes(val) &amp;&amp; val.constructor === type;
+is(Array, [1]); // trueis(ArrayBuffer, new ArrayBuffer()); // trueis(Map, new Map()); // trueis(RegExp, /./g); // trueis(Set, new Set()); // trueis(WeakMap, new WeakMap()); // trueis(WeakSet, new WeakSet()); // trueis(String, ''); // trueis(String, new String('')); // trueis(Number, 1); // trueis(Number, new Number(1)); // trueis(Boolean, true); // trueis(Boolean, new Boolean(true)); // true
+</code></pre></div><h1 id="_59、isafterdate"><a href="#_59、isafterdate" class="header-anchor">#</a> <strong>59、isAfterDate</strong></h1> <p>此代码段可用于检查某个日期是否在另一个日期之后。</p> <div class="language- extra-class"><pre class="language-text"><code>const isAfterDate = (dateA, dateB) =&gt; dateA &gt; dateB;
+isAfterDate(new Date(2010, 10, 21), new Date(2010, 10, 20)); // true
+</code></pre></div><h1 id="_60、-isanagram"><a href="#_60、-isanagram" class="header-anchor">#</a> <strong>60、 isAnagram</strong></h1> <p>此代码段可用于检查特定字符串是否是另一个字符串的字谜。</p> <div class="language- extra-class"><pre class="language-text"><code>const isAnagram = (str1, str2) =&gt; {  const normalize = str =&gt;    str      .toLowerCase()      .replace(/[^az09]/gi, '')      .split('')      .sort()      .join('');  return normalize(str1) === normalize(str2);};
+isAnagram('iceman', 'cinema'); // true
+</code></pre></div><h1 id="_61、isarraylike"><a href="#_61、isarraylike" class="header-anchor">#</a> <strong>61、isArrayLike</strong></h1> <p>此代码段可用于检查提供的参数是否像数组一样可迭代。</p> <div class="language- extra-class"><pre class="language-text"><code>const isArrayLike = obj =&gt; obj != null &amp;&amp; typeof obj[Symbol.iterator] === 'function';
+isArrayLike(document.querySelectorAll('.className')); // trueisArrayLike('abc'); // trueisArrayLike(null); // false
+</code></pre></div><h1 id="_62、-isbeforedate"><a href="#_62、-isbeforedate" class="header-anchor">#</a> <strong>62、 isBeforeDate</strong></h1> <p>此代码段可用于检查某个日期是否在另一个日期之前。</p> <div class="language- extra-class"><pre class="language-text"><code>const isBeforeDate = (dateA, dateB) =&gt; dateA &lt; dateB;
+isBeforeDate(new Date(2010, 10, 20), new Date(2010, 10, 21)); // true
+</code></pre></div><h1 id="_63、isboolean"><a href="#_63、isboolean" class="header-anchor">#</a> <strong>63、isBoolean</strong></h1> <p>此代码段可用于检查参数是否为布尔值。</p> <div class="language- extra-class"><pre class="language-text"><code>const isBoolean = val =&gt; typeof val === 'boolean';
+isBoolean(null); // falseisBoolean(false); // true
+</code></pre></div><h1 id="_64、-isbrowser"><a href="#_64、-isbrowser" class="header-anchor">#</a> <strong>64、 isBrowser</strong></h1> <p>此代码段可用于确定当前运行时环境是否为浏览器。这有助于避免在服务器（节点）上运行前端模块时出错。</p> <div class="language- extra-class"><pre class="language-text"><code>const isBrowser = () =&gt; ![typeof window, typeof document].includes('undefined');
+isBrowser(); // true (browser)isBrowser(); // false (Node)
+</code></pre></div><h1 id="_65、-isbrowsertabfocused"><a href="#_65、-isbrowsertabfocused" class="header-anchor">#</a> <strong>65、 isBrowserTabFocused</strong></h1> <p>此代码段可用于确定浏览器选项卡是否获得焦点。</p> <div class="language- extra-class"><pre class="language-text"><code>const isBrowserTabFocused = () =&gt; !document.hidden;
+isBrowserTabFocused(); // true
+</code></pre></div><h1 id="_66、-islowercase"><a href="#_66、-islowercase" class="header-anchor">#</a> <strong>66、 isLowerCase</strong></h1> <p>此代码段可用于确定字符串是否为小写。</p> <div class="language- extra-class"><pre class="language-text"><code>const isLowerCase = str =&gt; str === str.toLowerCase();
+isLowerCase('abc'); // trueisLowerCase('a3@$'); // trueisLowerCase('Ab4'); // false
+</code></pre></div><h1 id="_67、-isnil"><a href="#_67、-isnil" class="header-anchor">#</a> <strong>67、 isNil</strong></h1> <p>此代码段可用于检查值是否为null或undefined。</p> <div class="language- extra-class"><pre class="language-text"><code>const isNil = val =&gt; val === undefined || val === null;
+isNil(null); // trueisNil(undefined); // true
+</code></pre></div><h1 id="_68、-isnull"><a href="#_68、-isnull" class="header-anchor">#</a> <strong>68、 isNull</strong></h1> <p>此代码段可用于检查值是否为null。</p> <div class="language- extra-class"><pre class="language-text"><code>const isNull = val =&gt; val === null;
+isNull(null); // true
+</code></pre></div><h1 id="_69、-isnumber"><a href="#_69、-isnumber" class="header-anchor">#</a> <strong>69、 isNumber</strong></h1> <p>此代码段可用于检查提供的值是否为数字。</p> <div class="language- extra-class"><pre class="language-text"><code>function isNumber(n) {    return !isNaN(parseFloat(n)) &amp;&amp; isFinite(n);}
+isNumber('1'); // falseisNumber(1); // true
+</code></pre></div><h1 id="_70、-isobject"><a href="#_70、-isobject" class="header-anchor">#</a> <strong>70、 isObject</strong></h1> <p>此代码段可用于检查提供的值是否为对象。它使用 Object 构造函数为给定值创建对象包装器。</p> <p>如果它已经是一个对象，则将返回与给定值对应的对象类型。否则，将返回一个新对象。</p> <div class="language- extra-class"><pre class="language-text"><code>const isObject = obj =&gt; obj === Object(obj);
+isObject([1, 2, 3, 4]); // trueisObject([]); // trueisObject(['Hello!']); // trueisObject({ a: 1 }); // trueisObject({}); // trueisObject(true); // false
+</code></pre></div><h1 id="_71、-isobjectlike"><a href="#_71、-isobjectlike" class="header-anchor">#</a> <strong>71、 isObjectLike</strong></h1> <p>此代码段可用于检查值是否不为 null ，以及其 typeof 是否为“对象”。</p> <div class="language- extra-class"><pre class="language-text"><code>const isObjectLike = val =&gt; val !== null &amp;&amp; typeof val === 'object';
+isObjectLike({}); // trueisObjectLike([1, 2, 3]); // trueisObjectLike(x =&gt; x); // falseisObjectLike(null); // false
+</code></pre></div><h1 id="_72、-isplainobject"><a href="#_72、-isplainobject" class="header-anchor">#</a> <strong>72、 isPlainObject</strong></h1> <p>此代码段检查值是否由 Object 构造函数创建的对象。</p> <div class="language- extra-class"><pre class="language-text"><code>const isPlainObject = val =&gt; !!val &amp;&amp; typeof val === 'object' &amp;&amp; val.constructor === Object;
+isPlainObject({ a: 1 }); // trueisPlainObject(new Map()); // false
+</code></pre></div><h1 id="_73、-ispromiselike"><a href="#_73、-ispromiselike" class="header-anchor">#</a> <strong>73、 isPromiseLike</strong></h1> <p>此代码段检查对象是否看起来像Promise.</p> <div class="language- extra-class"><pre class="language-text"><code>const isPromiseLike = obj =&gt;  obj !== null &amp;&amp;  (typeof obj === 'object' || typeof obj === 'function') &amp;&amp;  typeof obj.then === 'function';
+isPromiseLike({  then: function() {    return '';  }}); // trueisPromiseLike(null); // falseisPromiseLike({}); // false
+</code></pre></div><h1 id="_74、issamedate"><a href="#_74、issamedate" class="header-anchor">#</a> <strong>74、isSameDate</strong></h1> <p>此代码段可用于检查两个日期是否相等。</p> <div class="language- extra-class"><pre class="language-text"><code>const isSameDate = (dateA, dateB) =&gt; dateA.toISOString() === dateB.toISOString();
+isSameDate(new Date(2010, 10, 20), new Date(2010, 10, 20)); // true
+</code></pre></div><h1 id="_75、-isstring"><a href="#_75、-isstring" class="header-anchor">#</a> <strong>75、 isString</strong></h1> <p>此代码段可用于检查参数是否为字符串。</p> <div class="language- extra-class"><pre class="language-text"><code>const isString = val =&gt; typeof val === 'string';
+isString('10'); // true
+</code></pre></div><h1 id="_76、-issymbol"><a href="#_76、-issymbol" class="header-anchor">#</a> <strong>76、 isSymbol</strong></h1> <p>此代码段可用于检查参数是否为符号。</p> <div class="language- extra-class"><pre class="language-text"><code>const isSymbol = val =&gt; typeof val === 'symbol';
+isSymbol(Symbol('x')); // true
+</code></pre></div><h1 id="_77、-isundefined"><a href="#_77、-isundefined" class="header-anchor">#</a> <strong>77、 isUndefined</strong></h1> <p>此代码段可用于检查值是否为undefined。</p> <div class="language- extra-class"><pre class="language-text"><code>const isUndefined = val =&gt; val === undefined;
+isUndefined(undefined); // true
+</code></pre></div><h1 id="_78、isuppercase"><a href="#_78、isuppercase" class="header-anchor">#</a> <strong>78、isUpperCase</strong></h1> <p>此代码段可用于检查字符串是否为大写。</p> <div class="language- extra-class"><pre class="language-text"><code>const isUpperCase = str =&gt; str === str.toUpperCase();
+isUpperCase('ABC'); // trueisLowerCase('A3@$'); // trueisLowerCase('aB4'); // false
+</code></pre></div><h1 id="_79、-isvalidjson"><a href="#_79、-isvalidjson" class="header-anchor">#</a> <strong>79、 isValidJSON</strong></h1> <p>此代码段可用于检查字符串是否为有效的 JSON。</p> <div class="language- extra-class"><pre class="language-text"><code>const isValidJSON = str =&gt; {  try {    JSON.parse(str);    return true;  } catch (e) {    return false;  }};
+isValidJSON('{&quot;name&quot;:&quot;Adam&quot;,&quot;age&quot;:20}'); // trueisValidJSON('{&quot;name&quot;:&quot;Adam&quot;,age:&quot;20&quot;}'); // falseisValidJSON(null); // true
+</code></pre></div><h1 id="_80、last"><a href="#_80、last" class="header-anchor">#</a> <strong>80、last</strong></h1> <p>此代码段返回数组的最后一个元素。</p> <div class="language- extra-class"><pre class="language-text"><code>const last = arr =&gt; arr[arr.length  1];
+last([1, 2, 3]); // 3
+</code></pre></div><h1 id="_81、matches"><a href="#_81、matches" class="header-anchor">#</a> <strong>81、matches</strong></h1> <p>此代码段比较两个对象以确定第一个对象是否包含与第二个对象相同的属性值。</p> <div class="language- extra-class"><pre class="language-text"><code>const matches = (obj, source) =&gt;  Object.keys(source).every(key =&gt; obj.hasOwnProperty(key) &amp;&amp; obj[key] === source[key]);
+matches({ age: 25, hair: 'long', beard: true }, { hair: 'long', beard: true }); // truematches({ hair: 'long', beard: true }, { age: 25, hair: 'long', beard: true }); // false
+</code></pre></div><h1 id="_82、maxdate"><a href="#_82、maxdate" class="header-anchor">#</a> <strong>82、maxDate</strong></h1> <p>此代码段可用于获取最新日期。</p> <div class="language- extra-class"><pre class="language-text"><code>const maxDate = (...dates) =&gt; new Date(Math.max.apply(null, ...dates));
+const array = [  new Date(2017, 4, 13),  new Date(2018, 2, 12),  new Date(2016, 0, 10),  new Date(2016, 0, 9)];maxDate(array); // 20180311T22:00:00.000Z
+</code></pre></div><h1 id="_83、maxn"><a href="#_83、maxn" class="header-anchor">#</a> <strong>83、maxN</strong></h1> <p>此代码段返回n列表中最大的元素。如果n大于或等于列表的长度，则返回原始列表（按降序排序）。</p> <div class="language- extra-class"><pre class="language-text"><code>const maxN = (arr, n = 1) =&gt; [...arr].sort((a, b) =&gt; b  a).slice(0, n);
+maxN([1, 2, 3]); // [3]maxN([1, 2, 3], 2); // [3,2]
+</code></pre></div><h1 id="_84、mindate"><a href="#_84、mindate" class="header-anchor">#</a> <strong>84、minDate</strong></h1> <p>此代码段可用于获取最早日期。</p> <div class="language- extra-class"><pre class="language-text"><code>const minDate = (...dates) =&gt; new Date(Math.min.apply(null, ...dates));
+const array = [  new Date(2017, 4, 13),  new Date(2018, 2, 12),  new Date(2016, 0, 10),  new Date(2016, 0, 9)];minDate(array); // 20160108T22:00:00.000Z
+</code></pre></div><h1 id="_85、minn"><a href="#_85、minn" class="header-anchor">#</a> <strong>85、minN</strong></h1> <p>此代码段返回n列表中的最小元素。如果n大于或等于列表的长度，则返回原始列表（按升序排序）。</p> <div class="language- extra-class"><pre class="language-text"><code>const minN = (arr, n = 1) =&gt; [...arr].sort((a, b) =&gt; a  b).slice(0, n);
+minN([1, 2, 3]); // [1]minN([1, 2, 3], 2); // [1,2]
+</code></pre></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">5/27/2022, 9:36:39 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/javascript/2-代码片段/代码片段-2.html" class="prev">
+        实用的JavaScript 代码片段，你千万要收藏好（上）
+      </a></span> <span class="next"><a href="/javascript/3-常用正则/emoji.html">
+        emojis 正则
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/assets/js/app.69b8f0a4.js" defer></script><script src="/assets/js/2.e21ead49.js" defer></script><script src="/assets/js/37.1c9f29e4.js" defer></script>
+  </body>
+</html>

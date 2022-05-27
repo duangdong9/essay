@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>服务器端渲染到底有什么好处？ | duangdong随笔</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/logo.png">
+    <link rel="manifest" href="/manifest.json">
+    <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?0088ce24040b03f2947322ab31d23414";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+  </script>
+    <script>
+  var _hmt = _hmt || [];
+  _hmt.push(['_requirePlugin', 'UrlChangeTracker', {
+    shouldTrackUrlChange: function (newPath, oldPath) {
+      newPath = newPath.split('#')[0];
+      oldPath = oldPath.split('#')[0];
+      return newPath != oldPath;
+    }}
+  ]);
+  </script>
+    <meta name="description" content="前端相关知识归纳总结">
+    <meta name="keywords" content="qd-blog,js,vuepress,leetcode,react,react进阶,css,js进阶,react性能优化,js设计模式">
+    
+    <link rel="preload" href="/assets/css/0.styles.a427ee9b.css" as="style"><link rel="preload" href="/assets/js/app.69b8f0a4.js" as="script"><link rel="preload" href="/assets/js/2.e21ead49.js" as="script"><link rel="preload" href="/assets/js/101.fa79323f.js" as="script"><link rel="prefetch" href="/assets/js/10.ba23573b.js"><link rel="prefetch" href="/assets/js/100.97f66efe.js"><link rel="prefetch" href="/assets/js/102.a93b6811.js"><link rel="prefetch" href="/assets/js/103.625b6b74.js"><link rel="prefetch" href="/assets/js/104.d485a579.js"><link rel="prefetch" href="/assets/js/105.38db7bfb.js"><link rel="prefetch" href="/assets/js/106.d6f5607d.js"><link rel="prefetch" href="/assets/js/107.eb8f8764.js"><link rel="prefetch" href="/assets/js/108.d5e7f95c.js"><link rel="prefetch" href="/assets/js/109.d4e4209c.js"><link rel="prefetch" href="/assets/js/11.4655383c.js"><link rel="prefetch" href="/assets/js/110.48a6dc9b.js"><link rel="prefetch" href="/assets/js/12.9b1188c1.js"><link rel="prefetch" href="/assets/js/13.b4d71ad2.js"><link rel="prefetch" href="/assets/js/14.c8e31c0d.js"><link rel="prefetch" href="/assets/js/15.dbdb12e8.js"><link rel="prefetch" href="/assets/js/16.a4b51719.js"><link rel="prefetch" href="/assets/js/17.d04cd903.js"><link rel="prefetch" href="/assets/js/18.dc328bb6.js"><link rel="prefetch" href="/assets/js/19.59ec477b.js"><link rel="prefetch" href="/assets/js/20.46438fd2.js"><link rel="prefetch" href="/assets/js/21.1f236c7d.js"><link rel="prefetch" href="/assets/js/22.b1311721.js"><link rel="prefetch" href="/assets/js/23.46367b14.js"><link rel="prefetch" href="/assets/js/24.15dcd53e.js"><link rel="prefetch" href="/assets/js/25.8294250f.js"><link rel="prefetch" href="/assets/js/26.7340b60a.js"><link rel="prefetch" href="/assets/js/27.7822de41.js"><link rel="prefetch" href="/assets/js/28.a0e67315.js"><link rel="prefetch" href="/assets/js/29.55f55536.js"><link rel="prefetch" href="/assets/js/3.c97c1fef.js"><link rel="prefetch" href="/assets/js/30.a39e4e16.js"><link rel="prefetch" href="/assets/js/31.8f66e0d8.js"><link rel="prefetch" href="/assets/js/32.54bf74e4.js"><link rel="prefetch" href="/assets/js/33.da9a14b5.js"><link rel="prefetch" href="/assets/js/34.c3a12cd3.js"><link rel="prefetch" href="/assets/js/35.6d6d2bee.js"><link rel="prefetch" href="/assets/js/36.1853c91e.js"><link rel="prefetch" href="/assets/js/37.1c9f29e4.js"><link rel="prefetch" href="/assets/js/38.fa9d01d4.js"><link rel="prefetch" href="/assets/js/39.9d76c693.js"><link rel="prefetch" href="/assets/js/4.8f6f0475.js"><link rel="prefetch" href="/assets/js/40.d08d623d.js"><link rel="prefetch" href="/assets/js/41.91b99294.js"><link rel="prefetch" href="/assets/js/42.811bc018.js"><link rel="prefetch" href="/assets/js/43.01f01609.js"><link rel="prefetch" href="/assets/js/44.f5aed78c.js"><link rel="prefetch" href="/assets/js/45.f74ae4d3.js"><link rel="prefetch" href="/assets/js/46.65ac34b7.js"><link rel="prefetch" href="/assets/js/47.7ced76ed.js"><link rel="prefetch" href="/assets/js/48.4ee7b3f5.js"><link rel="prefetch" href="/assets/js/49.af967d01.js"><link rel="prefetch" href="/assets/js/5.8b87f02a.js"><link rel="prefetch" href="/assets/js/50.eb38b705.js"><link rel="prefetch" href="/assets/js/51.ee0a9519.js"><link rel="prefetch" href="/assets/js/52.e56b8bcd.js"><link rel="prefetch" href="/assets/js/53.b5bb4bc6.js"><link rel="prefetch" href="/assets/js/54.16393f0e.js"><link rel="prefetch" href="/assets/js/55.f4a398e9.js"><link rel="prefetch" href="/assets/js/56.e39eae4a.js"><link rel="prefetch" href="/assets/js/57.72330ff5.js"><link rel="prefetch" href="/assets/js/58.8297b11c.js"><link rel="prefetch" href="/assets/js/59.178d8a13.js"><link rel="prefetch" href="/assets/js/6.2f86309f.js"><link rel="prefetch" href="/assets/js/60.71d54701.js"><link rel="prefetch" href="/assets/js/61.ab727f41.js"><link rel="prefetch" href="/assets/js/62.8a43d044.js"><link rel="prefetch" href="/assets/js/63.78218eb4.js"><link rel="prefetch" href="/assets/js/64.c6b330db.js"><link rel="prefetch" href="/assets/js/65.00816eb3.js"><link rel="prefetch" href="/assets/js/66.0a003ca7.js"><link rel="prefetch" href="/assets/js/67.d14b5ae2.js"><link rel="prefetch" href="/assets/js/68.22734564.js"><link rel="prefetch" href="/assets/js/69.7859fbd5.js"><link rel="prefetch" href="/assets/js/7.f1cc41de.js"><link rel="prefetch" href="/assets/js/70.9682f7a2.js"><link rel="prefetch" href="/assets/js/71.8c2448ee.js"><link rel="prefetch" href="/assets/js/72.4a598c93.js"><link rel="prefetch" href="/assets/js/73.1841194b.js"><link rel="prefetch" href="/assets/js/74.a7be3965.js"><link rel="prefetch" href="/assets/js/75.873391ae.js"><link rel="prefetch" href="/assets/js/76.8d36425a.js"><link rel="prefetch" href="/assets/js/77.004070b2.js"><link rel="prefetch" href="/assets/js/78.4ef19ec7.js"><link rel="prefetch" href="/assets/js/79.a23e245b.js"><link rel="prefetch" href="/assets/js/8.940f737b.js"><link rel="prefetch" href="/assets/js/80.ee65348b.js"><link rel="prefetch" href="/assets/js/81.4b9a7975.js"><link rel="prefetch" href="/assets/js/82.39647dc0.js"><link rel="prefetch" href="/assets/js/83.ccc4d33b.js"><link rel="prefetch" href="/assets/js/84.4693b3f7.js"><link rel="prefetch" href="/assets/js/85.394ea97a.js"><link rel="prefetch" href="/assets/js/86.86b23ff0.js"><link rel="prefetch" href="/assets/js/87.b851ab54.js"><link rel="prefetch" href="/assets/js/88.5b34fdad.js"><link rel="prefetch" href="/assets/js/89.cf7a6c63.js"><link rel="prefetch" href="/assets/js/9.5791bb04.js"><link rel="prefetch" href="/assets/js/90.a4606c25.js"><link rel="prefetch" href="/assets/js/91.7fd67440.js"><link rel="prefetch" href="/assets/js/92.8c9247d5.js"><link rel="prefetch" href="/assets/js/93.7adf8119.js"><link rel="prefetch" href="/assets/js/94.8b1f6ba8.js"><link rel="prefetch" href="/assets/js/95.91458090.js"><link rel="prefetch" href="/assets/js/96.639b2203.js"><link rel="prefetch" href="/assets/js/97.6fa85ae1.js"><link rel="prefetch" href="/assets/js/98.0f8ac38d.js"><link rel="prefetch" href="/assets/js/99.57624a8e.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.a427ee9b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">duangdong随笔</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="JS" class="dropdown-title"><span class="title">JS</span> <span class="arrow down"></span></button> <button type="button" aria-label="JS" class="mobile-dropdown-title"><span class="title">JS</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          js基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/javascript/2-代码片段/代码片段-2.html" class="nav-link">
+  《js代码片段》
+</a></li><li class="dropdown-subitem"><a href="/javascript/3-常用正则/emoji.html" class="nav-link">
+  《常用正则》
+</a></li><li class="dropdown-subitem"><a href="/javascript/4-常见问题/qa.html" class="nav-link">
+  《常用问题》
+</a></li><li class="dropdown-subitem"><a href="/javascript/1-重要类型/Map.html" class="nav-link">
+  《js重要类型》
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/c3/" class="nav-link">
+  CSS
+</a></div><div class="nav-item"><a href="/visual/" class="nav-link">
+  可视化
+</a></div><div class="nav-item"><a href="/skill/" class="nav-link">
+  开发技巧
+</a></div><div class="nav-item"><a href="/vue/" class="nav-link router-link-active">
+  Vue
+</a></div><div class="nav-item"><a href="/angular/" class="nav-link">
+  Angular
+</a></div><div class="nav-item"><a href="/mini-program/" class="nav-link">
+  小程序
+</a></div><div class="nav-item"><a href="/other/" class="nav-link">
+  随笔
+</a></div><div class="nav-item"><a href="https://link.qdzhou.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Home
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="JS" class="dropdown-title"><span class="title">JS</span> <span class="arrow down"></span></button> <button type="button" aria-label="JS" class="mobile-dropdown-title"><span class="title">JS</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          js基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/javascript/2-代码片段/代码片段-2.html" class="nav-link">
+  《js代码片段》
+</a></li><li class="dropdown-subitem"><a href="/javascript/3-常用正则/emoji.html" class="nav-link">
+  《常用正则》
+</a></li><li class="dropdown-subitem"><a href="/javascript/4-常见问题/qa.html" class="nav-link">
+  《常用问题》
+</a></li><li class="dropdown-subitem"><a href="/javascript/1-重要类型/Map.html" class="nav-link">
+  《js重要类型》
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/c3/" class="nav-link">
+  CSS
+</a></div><div class="nav-item"><a href="/visual/" class="nav-link">
+  可视化
+</a></div><div class="nav-item"><a href="/skill/" class="nav-link">
+  开发技巧
+</a></div><div class="nav-item"><a href="/vue/" class="nav-link router-link-active">
+  Vue
+</a></div><div class="nav-item"><a href="/angular/" class="nav-link">
+  Angular
+</a></div><div class="nav-item"><a href="/mini-program/" class="nav-link">
+  小程序
+</a></div><div class="nav-item"><a href="/other/" class="nav-link">
+  随笔
+</a></div><div class="nav-item"><a href="https://link.qdzhou.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Home
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/vue/" aria-current="page" class="sidebar-link">vue</a></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>SSR</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/vue/SSR/import问题.html" class="sidebar-link">解决Nuxt.js项目server入口文件不能使用import</a></li><li><a href="/vue/SSR/nuxt.html" aria-current="page" class="active sidebar-link">服务器端渲染到底有什么好处？</a></li><li><a href="/vue/SSR/ssr.html" class="sidebar-link">Next Nuxt Nest</a></li><li><a href="/vue/SSR/服务端渲染.html" class="sidebar-link">服务端渲染</a></li></ul></section></li><li><a href="/vue/Vue-learning.html" class="sidebar-link">Vue基础知识点：</a></li><li><a href="/vue/router-protect.html" class="sidebar-link">vue-router</a></li><li><a href="/vue/vue3.html" class="sidebar-link">Vue3的新特性</a></li><li><a href="/vue/vuex.html" class="sidebar-link">vuex</a></li><li><a href="/vue/vue中使用rem适配.html" class="sidebar-link">vue-cli3.0使用rem适配方案</a></li><li><a href="/vue/vue使用vw适配.html" class="sidebar-link">使用vw实现移动端适配</a></li><li><a href="/vue/vue打包得相关问题.html" class="sidebar-link">打包相关</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="服务器端渲染到底有什么好处"><a href="#服务器端渲染到底有什么好处" class="header-anchor">#</a> 服务器端渲染到底有什么好处？</h2> <blockquote><p>最主要的原因时SPA（单页应用）不利于搜索引擎的SEO操作。比如你作一个新闻网站，流量的一个主要来源是通过百度、谷歌、bing这些搜索引擎，但是它们对SPA的抓取并不好，特别是百度根本没法抓取到SPA的内容页面，所以我们必须把我们的应用在服务端渲染成适合搜索引擎抓取的页面，再下载到客户端。那Nuxt.js适合作新闻、博客、电影、咨询这样的需要搜索引擎提供流量的项目。如果你要作移动端的项目，就没必要使用这个框架了。</p></blockquote> <h2 id="什么是ssr"><a href="#什么是ssr" class="header-anchor">#</a> 什么是SSR</h2> <blockquote><p>SSR，即服务器渲染，就是在服务器端将对Vue页面进行渲染生成html文件，将html页面传递给浏览器。</p></blockquote> <p>SSR两个优点：</p> <ul><li>SEO 不同于SPA的HTML只有一个无实际内容的HTML和一个app.js，SSR生成的HTML是有内容的，这让搜索引擎能够索引到页面内容。</li> <li>更快内容到达时间 传统的SPA应用是将bundle.js从服务器获取，然后在客户端解析并挂载到dom。而SSR直接将HTML字符串传递给浏览器。大大加快了首屏加载时间。</li></ul> <h2 id="nuxt"><a href="#nuxt" class="header-anchor">#</a> Nuxt</h2> <blockquote><p>Nuxt.js简单的说是Vue.js的通用框架，最常用的就是用来作SSR（服务器端渲染）。再直白点说，就是Vue.js原来是开发SPA（单页应用）的，但是随着技术的普及，很多人想用Vue开发多页应用，并在服务端完成渲染。这时候就出现了Nuxt.js这个框架，她简化了SSR的开发难度。还可以直接用命令把我们制作的vue项目生成为静态html。</p></blockquote> <p><strong>官方解释</strong></p> <blockquote><p>Nuxt.js 是一个基于 Vue.js 的通用应用框架。 通过对客户端/服务端基础架构的抽象组织，Nuxt.js 主要关注的是应用的 UI渲染。</p></blockquote> <p><strong>Nuxt.js是特点（优点）</strong>：</p> <ul><li>基于 Vue.js</li> <li>自动代码分层</li> <li>服务端渲染</li> <li>强大的路由功能，支持异步数据</li> <li>静态文件服务</li> <li>ES6/ES7 语法支持</li> <li>打包和压缩 JS 和 CSS</li> <li>HTML头部标签管理</li> <li>本地开发支持热加载</li> <li>集成ESLint</li> <li>支持各种样式预处理器： SASS、LESS、 Stylus等等</li></ul> <h3 id="nuxt文件目录"><a href="#nuxt文件目录" class="header-anchor">#</a> Nuxt文件目录</h3> <p><strong>目录结构</strong></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token operator">|</span><span class="token operator">--</span> <span class="token punctuation">.</span>nuxt                            <span class="token comment">// Nuxt自动生成，临时的用于编辑的文件，build</span>
+<span class="token operator">|</span><span class="token operator">--</span> assets                           <span class="token comment">// 用于组织未编译的静态资源入LESS、SASS 或 JavaScript</span>
+<span class="token operator">|</span><span class="token operator">--</span> components                       <span class="token comment">// 用于自己编写的Vue组件，比如滚动组件，日历组件，分页组件</span>
+<span class="token operator">|</span><span class="token operator">--</span> layouts                          <span class="token comment">// 布局目录，用于组织应用的布局组件，不可更改。</span>
+<span class="token operator">|</span><span class="token operator">--</span> middleware                       <span class="token comment">// 用于存放中间件</span>
+<span class="token operator">|</span><span class="token operator">--</span> pages                            <span class="token comment">// 用于存放写的页面，我们主要的工作区域</span>
+<span class="token operator">|</span><span class="token operator">--</span> plugins                          <span class="token comment">// 用于存放JavaScript插件的地方</span>
+<span class="token operator">|</span><span class="token operator">--</span> <span class="token keyword">static</span>                           <span class="token comment">// 用于存放静态资源文件，比如图片</span>
+<span class="token operator">|</span><span class="token operator">--</span> store                            <span class="token comment">// 用于组织应用的Vuex 状态管理。</span>
+<span class="token operator">|</span><span class="token operator">--</span> <span class="token punctuation">.</span>editorconfig                    <span class="token comment">// 开发工具格式配置</span>
+<span class="token operator">|</span><span class="token operator">--</span> <span class="token punctuation">.</span>eslintrc<span class="token punctuation">.</span>js                     <span class="token comment">// ESLint的配置文件，用于检查代码格式</span>
+<span class="token operator">|</span><span class="token operator">--</span> <span class="token punctuation">.</span>gitignore                       <span class="token comment">// 配置git不上传的文件</span>
+<span class="token operator">|</span><span class="token operator">--</span> nuxt<span class="token punctuation">.</span>config<span class="token punctuation">.</span>json                 <span class="token comment">// 用于组织Nuxt.js应用的个性化配置，已覆盖默认配置</span>
+<span class="token operator">|</span><span class="token operator">--</span> <span class="token keyword">package</span><span class="token operator">-</span>lock<span class="token punctuation">.</span>json                <span class="token comment">// npm自动生成，用于帮助package的统一性设置的，yarn也有相同的操作</span>
+<span class="token operator">|</span><span class="token operator">--</span> <span class="token keyword">package</span><span class="token operator">-</span>lock<span class="token punctuation">.</span>json                <span class="token comment">// npm自动生成，用于帮助package的统一性设置的，yarn也有相同的操作</span>
+<span class="token operator">|</span><span class="token operator">--</span> <span class="token keyword">package</span><span class="token punctuation">.</span>json                     <span class="token comment">// npm包管理配置文件</span>
+</code></pre></div><h3 id="nuxt基础配置"><a href="#nuxt基础配置" class="header-anchor">#</a> Nuxt基础配置</h3> <ul><li><p><strong>配置运行的端口</strong></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">//在package.json的文件中配置其端口</span>
+<span class="token string-property property">&quot;config&quot;</span><span class="token operator">:</span><span class="token punctuation">{</span>
+    <span class="token string-property property">&quot;nuxt&quot;</span><span class="token operator">:</span><span class="token punctuation">{</span>
+        <span class="token string-property property">&quot;host&quot;</span><span class="token operator">:</span> <span class="token string">&quot;127.0.0.1&quot;</span><span class="token punctuation">,</span>
+        <span class="token string-property property">&quot;port&quot;</span><span class="token operator">:</span> <span class="token string">&quot;8899&quot;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li> <li><p><strong>配置全局CSS</strong></p> <ul><li><p>可创建文件<code>/assets/css/normailze.css</code></p></li> <li><p>在<code>/nuxt.config.js</code>中配置</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token literal-property property">css</span><span class="token operator">:</span><span class="token punctuation">[</span><span class="token string">'~assets/css/normailze.css'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+</code></pre></div></li> <li><p>配置webpack的loader</p> <ul><li>在nuxt.config.js里是可以对webpack的基本配置进行覆盖的，比如现在我们要配置一个url-loader来进行小图片的64位打包。就可以在nuxt.config.js的build选项里进行配置。</li></ul> <div class="language-js extra-class"><pre class="language-js"><code> <span class="token literal-property property">loaders</span><span class="token operator">:</span><span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+        <span class="token literal-property property">test</span><span class="token operator">:</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\.(png|jpe?g|gif|svg)$</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span>
+        <span class="token literal-property property">loader</span><span class="token operator">:</span><span class="token string">&quot;url-loader&quot;</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">query</span><span class="token operator">:</span><span class="token punctuation">{</span>
+          <span class="token literal-property property">limit</span><span class="token operator">:</span><span class="token number">10000</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">name</span><span class="token operator">:</span><span class="token string">'img/[name].[hash].[ext]'</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token comment">/*
+    ** Run ESLint on save
+    */</span>
+    <span class="token function">extend</span> <span class="token punctuation">(</span><span class="token parameter">config<span class="token punctuation">,</span> <span class="token punctuation">{</span> isDev<span class="token punctuation">,</span> isClient <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>isDev <span class="token operator">&amp;&amp;</span> isClient<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        config<span class="token punctuation">.</span>module<span class="token punctuation">.</span>rules<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+          <span class="token literal-property property">enforce</span><span class="token operator">:</span> <span class="token string">'pre'</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">test</span><span class="token operator">:</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\.(js|vue)$</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span>
+          <span class="token literal-property property">loader</span><span class="token operator">:</span> <span class="token string">'eslint-loader'</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">exclude</span><span class="token operator">:</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">(node_modules)</span><span class="token regex-delimiter">/</span></span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+</code></pre></div></li></ul></li></ul> <h3 id="nuxt路由配置"><a href="#nuxt路由配置" class="header-anchor">#</a> Nuxt路由配置</h3> <ul><li><p><strong>基础路由配置</strong></p> <ul><li><strong>pages</strong>文件夹下面的的<code>vue</code>组件，重新编译执行后会被自动的配置成路由，
+<ul><li>在<code>.nuxt</code>中的<code>router.js</code>中可以看到详细的路由配置</li></ul></li> <li>不管是任意名字的<code>vue</code>文件，还是文件夹，都会自动生成路由配置，无需手动配置</li> <li>需注意的是，配置后需要重新编译，可查看<code>.nuxt</code>文件中<code>router.js</code>中有没有相关的配置</li></ul> <div class="language-js extra-class"><pre class="language-js"><code>  <span class="token literal-property property">routes</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+      <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">&quot;/abouts&quot;</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">component</span><span class="token operator">:</span> _6fe9dcfd<span class="token punctuation">,</span>
+      <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">&quot;abouts&quot;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">&quot;/news&quot;</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">component</span><span class="token operator">:</span> _56266eb8<span class="token punctuation">,</span>
+      <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">&quot;news&quot;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">&quot;/&quot;</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">component</span><span class="token operator">:</span> _2335bbab<span class="token punctuation">,</span>
+      <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">&quot;index&quot;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+</code></pre></div></li> <li><p><strong>参数传递</strong></p> <ul><li><p>从一个页面将参数传递给另一个页面的时候</p> <ul><li>和<code>vue</code>基本相同，只是将跳转的<code>router-link</code>变成<code>nuxt-link</code></li> <li>接受时，使用<code>$route.params.newsId</code>进行参数的获取</li></ul> <div class="language-vue extra-class"><pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>nuxt-link</span> <span class="token attr-name">:to</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>{name:<span class="token punctuation">'</span>index<span class="token punctuation">'</span>}<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>HOME<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>nuxt-link</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>nuxt-link</span> <span class="token attr-name">:to</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>{name:<span class="token punctuation">'</span>about<span class="token punctuation">'</span>}<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>ABOUT<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>nuxt-link</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>nuxt-link</span> <span class="token attr-name">:to</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>{name:<span class="token punctuation">'</span>news<span class="token punctuation">'</span>,params:{newsId:3306}}<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>NEWS<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>nuxt-link</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div></li></ul></li> <li><p><strong>动态路由</strong></p> <ul><li><p>如果需要为某个组件设置动态路由，则在相应的文件夹下面创建<strong>以下划线命名的vue文件即可</strong>如 <code>_id.vue</code>，<code>nuxt</code>会自动配置其为动态路由，在<code>router.js</code>中可以查看具体的配置</p></li> <li><p>例如：在<code>news</code>文件夹下面新建了<code>_id.vue</code>的文件，然后在文件里边有<code>$route.params.id</code>来接收参数。</p> <div class="language-vue extra-class"><pre class="language-vue"><code>//news.vue
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h3</span><span class="token punctuation">&gt;</span></span>news<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h3</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>nuxt-link</span> <span class="token attr-name">:to</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>{name:<span class="token punctuation">'</span>news-news1<span class="token punctuation">'</span>}<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>news1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>nuxt-link</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>nuxt-link</span> <span class="token attr-name">:to</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>{name:<span class="token punctuation">'</span>news-news2<span class="token punctuation">'</span>}<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>news2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>nuxt-link</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>nuxt-link</span> <span class="token attr-name">to</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>/news/124<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>news124<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>nuxt-link</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>nuxt-link</span> <span class="token attr-name">to</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>/news/125<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>news125<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>nuxt-link</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div></li> <li><p><strong>动态参数的校验</strong></p> <ul><li><p>对传过来的参数进行校验</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">//在动态路由 _id.vue中写校验规则</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  <span class="token function">validate</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> params <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">//让传过来的参数必须是数字</span>
+    <span class="token keyword">return</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">^\d+$</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>params<span class="token punctuation">.</span>id<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li> <li><p><strong>validate()</strong></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token function">validate</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> params<span class="token punctuation">,</span> query <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token boolean">true</span> <span class="token comment">// 如果参数有效</span>
+  <span class="token keyword">return</span> <span class="token boolean">false</span> <span class="token comment">// 参数无效，Nuxt.js 停止渲染当前页面并显示错误页面</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">async</span> <span class="token function">validate</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> params<span class="token punctuation">,</span> query<span class="token punctuation">,</span> store <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// await operations</span>
+  <span class="token keyword">return</span> <span class="token boolean">true</span> <span class="token comment">// 如果参数有效</span>
+  <span class="token keyword">return</span> <span class="token boolean">false</span> <span class="token comment">// 将停止Nuxt.js呈现页面并显示错误页面</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li> <li><p><code>validate()</code>校验<code>store</code>中的数据</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  <span class="token function">validate</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> params<span class="token punctuation">,</span> store <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 校验 `params.id` 是否存在</span>
+ 	<span class="token comment">// 比对store中存储的数据</span>
+  <span class="token keyword">return</span> store<span class="token punctuation">.</span>state<span class="token punctuation">.</span>categories<span class="token punctuation">.</span><span class="token function">some</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">category</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> category<span class="token punctuation">.</span>id <span class="token operator">===</span> params<span class="token punctuation">.</span>id<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li></ul></li></ul></li></ul> <h3 id="nuxt中默认布局"><a href="#nuxt中默认布局" class="header-anchor">#</a> Nuxt中默认布局</h3> <blockquote><p>默认布局主要针对于页面的统一布局使用。它在位置根目录下的<code>layouts/default.vue</code>。</p></blockquote> <ul><li><p>在layouts目录下创建vue文件，其中需要注意的就是留坑让每个组件使用的时候，有填充内容的地方；</p> <div class="language-vue extra-class"><pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>header</span><span class="token punctuation">&gt;</span></span>self-header<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>header</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>nuxt</span><span class="token punctuation">/&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>footer</span><span class="token punctuation">&gt;</span></span>self-footer<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>footer</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div></li> <li><p>使用自定义的布局</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token comment">//指定使用的布局</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">layout</span><span class="token operator">:</span> <span class="token string">'self'</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'Test'</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li></ul> <h3 id="nuxt中asyncdata方法获取数据"><a href="#nuxt中asyncdata方法获取数据" class="header-anchor">#</a> Nuxt中asyncData方法获取数据</h3> <ul><li><p>在项目初始化页面前先获取到数据，之前我们是一般实在<code>mouted</code>中写异步请求，但是在<code>ssr</code>中没有哪个生命周期，所以增加了<code>asyncData</code>的方法；</p></li> <li><p>在这个方法被调用的时候，第一个参数被设定为当前页面的<strong>上下文对象</strong>，你可以利用 <code>asyncData</code>方法来获取数据并返回给当前组件</p></li> <li><p>注意：由于<code>asyncData</code>方法是在组件 <strong>初始化</strong> 前被调用的，所以在方法内是没有办法通过 <code>this</code> 来引用组件的实例对象。</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  <span class="token function">data</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span> <span class="token literal-property property">project</span><span class="token operator">:</span> <span class="token string">'default'</span> <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token function">asyncData</span> <span class="token punctuation">(</span><span class="token parameter">context</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span> <span class="token literal-property property">project</span><span class="token operator">:</span> <span class="token string">'nuxt'</span> <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  <span class="token function">data</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span> 
+    	<span class="token literal-property property">list</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token keyword">async</span> <span class="token function">asyncData</span> <span class="token punctuation">(</span><span class="token parameter">context</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> <span class="token punctuation">{</span>state<span class="token punctuation">,</span> <span class="token literal-property property">data</span><span class="token operator">:</span><span class="token punctuation">{</span>list<span class="token punctuation">}</span><span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">await</span> axios<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'/api/'</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+        list
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+</code></pre></div></li></ul></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">5/27/2022, 9:36:39 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/vue/SSR/import问题.html" class="prev">
+        解决Nuxt.js项目server入口文件不能使用import
+      </a></span> <span class="next"><a href="/vue/SSR/ssr.html">
+        Next Nuxt Nest
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/assets/js/app.69b8f0a4.js" defer></script><script src="/assets/js/2.e21ead49.js" defer></script><script src="/assets/js/101.fa79323f.js" defer></script>
+  </body>
+</html>

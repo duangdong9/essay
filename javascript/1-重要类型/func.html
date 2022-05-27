@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>JavaScript 函数式编程解析（上） | duangdong随笔</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/logo.png">
+    <link rel="manifest" href="/manifest.json">
+    <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?0088ce24040b03f2947322ab31d23414";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+  </script>
+    <script>
+  var _hmt = _hmt || [];
+  _hmt.push(['_requirePlugin', 'UrlChangeTracker', {
+    shouldTrackUrlChange: function (newPath, oldPath) {
+      newPath = newPath.split('#')[0];
+      oldPath = oldPath.split('#')[0];
+      return newPath != oldPath;
+    }}
+  ]);
+  </script>
+    <meta name="description" content="前端相关知识归纳总结">
+    <meta name="keywords" content="qd-blog,js,vuepress,leetcode,react,react进阶,css,js进阶,react性能优化,js设计模式">
+    
+    <link rel="preload" href="/assets/css/0.styles.a427ee9b.css" as="style"><link rel="preload" href="/assets/js/app.69b8f0a4.js" as="script"><link rel="preload" href="/assets/js/2.e21ead49.js" as="script"><link rel="preload" href="/assets/js/31.8f66e0d8.js" as="script"><link rel="prefetch" href="/assets/js/10.ba23573b.js"><link rel="prefetch" href="/assets/js/100.97f66efe.js"><link rel="prefetch" href="/assets/js/101.fa79323f.js"><link rel="prefetch" href="/assets/js/102.a93b6811.js"><link rel="prefetch" href="/assets/js/103.625b6b74.js"><link rel="prefetch" href="/assets/js/104.d485a579.js"><link rel="prefetch" href="/assets/js/105.38db7bfb.js"><link rel="prefetch" href="/assets/js/106.d6f5607d.js"><link rel="prefetch" href="/assets/js/107.eb8f8764.js"><link rel="prefetch" href="/assets/js/108.d5e7f95c.js"><link rel="prefetch" href="/assets/js/109.d4e4209c.js"><link rel="prefetch" href="/assets/js/11.4655383c.js"><link rel="prefetch" href="/assets/js/110.48a6dc9b.js"><link rel="prefetch" href="/assets/js/12.9b1188c1.js"><link rel="prefetch" href="/assets/js/13.b4d71ad2.js"><link rel="prefetch" href="/assets/js/14.c8e31c0d.js"><link rel="prefetch" href="/assets/js/15.dbdb12e8.js"><link rel="prefetch" href="/assets/js/16.a4b51719.js"><link rel="prefetch" href="/assets/js/17.d04cd903.js"><link rel="prefetch" href="/assets/js/18.dc328bb6.js"><link rel="prefetch" href="/assets/js/19.59ec477b.js"><link rel="prefetch" href="/assets/js/20.46438fd2.js"><link rel="prefetch" href="/assets/js/21.1f236c7d.js"><link rel="prefetch" href="/assets/js/22.b1311721.js"><link rel="prefetch" href="/assets/js/23.46367b14.js"><link rel="prefetch" href="/assets/js/24.15dcd53e.js"><link rel="prefetch" href="/assets/js/25.8294250f.js"><link rel="prefetch" href="/assets/js/26.7340b60a.js"><link rel="prefetch" href="/assets/js/27.7822de41.js"><link rel="prefetch" href="/assets/js/28.a0e67315.js"><link rel="prefetch" href="/assets/js/29.55f55536.js"><link rel="prefetch" href="/assets/js/3.c97c1fef.js"><link rel="prefetch" href="/assets/js/30.a39e4e16.js"><link rel="prefetch" href="/assets/js/32.54bf74e4.js"><link rel="prefetch" href="/assets/js/33.da9a14b5.js"><link rel="prefetch" href="/assets/js/34.c3a12cd3.js"><link rel="prefetch" href="/assets/js/35.6d6d2bee.js"><link rel="prefetch" href="/assets/js/36.1853c91e.js"><link rel="prefetch" href="/assets/js/37.1c9f29e4.js"><link rel="prefetch" href="/assets/js/38.fa9d01d4.js"><link rel="prefetch" href="/assets/js/39.9d76c693.js"><link rel="prefetch" href="/assets/js/4.8f6f0475.js"><link rel="prefetch" href="/assets/js/40.d08d623d.js"><link rel="prefetch" href="/assets/js/41.91b99294.js"><link rel="prefetch" href="/assets/js/42.811bc018.js"><link rel="prefetch" href="/assets/js/43.01f01609.js"><link rel="prefetch" href="/assets/js/44.f5aed78c.js"><link rel="prefetch" href="/assets/js/45.f74ae4d3.js"><link rel="prefetch" href="/assets/js/46.65ac34b7.js"><link rel="prefetch" href="/assets/js/47.7ced76ed.js"><link rel="prefetch" href="/assets/js/48.4ee7b3f5.js"><link rel="prefetch" href="/assets/js/49.af967d01.js"><link rel="prefetch" href="/assets/js/5.8b87f02a.js"><link rel="prefetch" href="/assets/js/50.eb38b705.js"><link rel="prefetch" href="/assets/js/51.ee0a9519.js"><link rel="prefetch" href="/assets/js/52.e56b8bcd.js"><link rel="prefetch" href="/assets/js/53.b5bb4bc6.js"><link rel="prefetch" href="/assets/js/54.16393f0e.js"><link rel="prefetch" href="/assets/js/55.f4a398e9.js"><link rel="prefetch" href="/assets/js/56.e39eae4a.js"><link rel="prefetch" href="/assets/js/57.72330ff5.js"><link rel="prefetch" href="/assets/js/58.8297b11c.js"><link rel="prefetch" href="/assets/js/59.178d8a13.js"><link rel="prefetch" href="/assets/js/6.2f86309f.js"><link rel="prefetch" href="/assets/js/60.71d54701.js"><link rel="prefetch" href="/assets/js/61.ab727f41.js"><link rel="prefetch" href="/assets/js/62.8a43d044.js"><link rel="prefetch" href="/assets/js/63.78218eb4.js"><link rel="prefetch" href="/assets/js/64.c6b330db.js"><link rel="prefetch" href="/assets/js/65.00816eb3.js"><link rel="prefetch" href="/assets/js/66.0a003ca7.js"><link rel="prefetch" href="/assets/js/67.d14b5ae2.js"><link rel="prefetch" href="/assets/js/68.22734564.js"><link rel="prefetch" href="/assets/js/69.7859fbd5.js"><link rel="prefetch" href="/assets/js/7.f1cc41de.js"><link rel="prefetch" href="/assets/js/70.9682f7a2.js"><link rel="prefetch" href="/assets/js/71.8c2448ee.js"><link rel="prefetch" href="/assets/js/72.4a598c93.js"><link rel="prefetch" href="/assets/js/73.1841194b.js"><link rel="prefetch" href="/assets/js/74.a7be3965.js"><link rel="prefetch" href="/assets/js/75.873391ae.js"><link rel="prefetch" href="/assets/js/76.8d36425a.js"><link rel="prefetch" href="/assets/js/77.004070b2.js"><link rel="prefetch" href="/assets/js/78.4ef19ec7.js"><link rel="prefetch" href="/assets/js/79.a23e245b.js"><link rel="prefetch" href="/assets/js/8.940f737b.js"><link rel="prefetch" href="/assets/js/80.ee65348b.js"><link rel="prefetch" href="/assets/js/81.4b9a7975.js"><link rel="prefetch" href="/assets/js/82.39647dc0.js"><link rel="prefetch" href="/assets/js/83.ccc4d33b.js"><link rel="prefetch" href="/assets/js/84.4693b3f7.js"><link rel="prefetch" href="/assets/js/85.394ea97a.js"><link rel="prefetch" href="/assets/js/86.86b23ff0.js"><link rel="prefetch" href="/assets/js/87.b851ab54.js"><link rel="prefetch" href="/assets/js/88.5b34fdad.js"><link rel="prefetch" href="/assets/js/89.cf7a6c63.js"><link rel="prefetch" href="/assets/js/9.5791bb04.js"><link rel="prefetch" href="/assets/js/90.a4606c25.js"><link rel="prefetch" href="/assets/js/91.7fd67440.js"><link rel="prefetch" href="/assets/js/92.8c9247d5.js"><link rel="prefetch" href="/assets/js/93.7adf8119.js"><link rel="prefetch" href="/assets/js/94.8b1f6ba8.js"><link rel="prefetch" href="/assets/js/95.91458090.js"><link rel="prefetch" href="/assets/js/96.639b2203.js"><link rel="prefetch" href="/assets/js/97.6fa85ae1.js"><link rel="prefetch" href="/assets/js/98.0f8ac38d.js"><link rel="prefetch" href="/assets/js/99.57624a8e.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.a427ee9b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">duangdong随笔</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="JS" class="dropdown-title"><span class="title">JS</span> <span class="arrow down"></span></button> <button type="button" aria-label="JS" class="mobile-dropdown-title"><span class="title">JS</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          js基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/javascript/2-代码片段/代码片段-2.html" class="nav-link">
+  《js代码片段》
+</a></li><li class="dropdown-subitem"><a href="/javascript/3-常用正则/emoji.html" class="nav-link">
+  《常用正则》
+</a></li><li class="dropdown-subitem"><a href="/javascript/4-常见问题/qa.html" class="nav-link">
+  《常用问题》
+</a></li><li class="dropdown-subitem"><a href="/javascript/1-重要类型/Map.html" class="nav-link">
+  《js重要类型》
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/c3/" class="nav-link">
+  CSS
+</a></div><div class="nav-item"><a href="/visual/" class="nav-link">
+  可视化
+</a></div><div class="nav-item"><a href="/skill/" class="nav-link">
+  开发技巧
+</a></div><div class="nav-item"><a href="/vue/" class="nav-link">
+  Vue
+</a></div><div class="nav-item"><a href="/angular/" class="nav-link">
+  Angular
+</a></div><div class="nav-item"><a href="/mini-program/" class="nav-link">
+  小程序
+</a></div><div class="nav-item"><a href="/other/" class="nav-link">
+  随笔
+</a></div><div class="nav-item"><a href="https://link.qdzhou.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Home
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="JS" class="dropdown-title"><span class="title">JS</span> <span class="arrow down"></span></button> <button type="button" aria-label="JS" class="mobile-dropdown-title"><span class="title">JS</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          js基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/javascript/2-代码片段/代码片段-2.html" class="nav-link">
+  《js代码片段》
+</a></li><li class="dropdown-subitem"><a href="/javascript/3-常用正则/emoji.html" class="nav-link">
+  《常用正则》
+</a></li><li class="dropdown-subitem"><a href="/javascript/4-常见问题/qa.html" class="nav-link">
+  《常用问题》
+</a></li><li class="dropdown-subitem"><a href="/javascript/1-重要类型/Map.html" class="nav-link">
+  《js重要类型》
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/c3/" class="nav-link">
+  CSS
+</a></div><div class="nav-item"><a href="/visual/" class="nav-link">
+  可视化
+</a></div><div class="nav-item"><a href="/skill/" class="nav-link">
+  开发技巧
+</a></div><div class="nav-item"><a href="/vue/" class="nav-link">
+  Vue
+</a></div><div class="nav-item"><a href="/angular/" class="nav-link">
+  Angular
+</a></div><div class="nav-item"><a href="/mini-program/" class="nav-link">
+  小程序
+</a></div><div class="nav-item"><a href="/other/" class="nav-link">
+  随笔
+</a></div><div class="nav-item"><a href="https://link.qdzhou.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Home
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/javascript/" aria-current="page" class="sidebar-link">js</a></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>1-重要类型</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/javascript/1-重要类型/Class.html" class="sidebar-link">class的基本语法和继承</a></li><li><a href="/javascript/1-重要类型/Generator.html" class="sidebar-link">Generator</a></li><li><a href="/javascript/1-重要类型/Map.html" class="sidebar-link">Map</a></li><li><a href="/javascript/1-重要类型/Object.html" class="sidebar-link">对象的扩展以及新增的方法</a></li><li><a href="/javascript/1-重要类型/Set.html" class="sidebar-link">Set</a></li><li><a href="/javascript/1-重要类型/func.html" class="active sidebar-link">JavaScript 函数式编程解析（上）</a></li><li><a href="/javascript/1-重要类型/function.html" class="sidebar-link">函数</a></li><li><a href="/javascript/1-重要类型/let_const.html" class="sidebar-link">let和const</a></li><li><a href="/javascript/1-重要类型/string.html" class="sidebar-link">String</a></li><li><a href="/javascript/1-重要类型/字符串-array.html" class="sidebar-link">字符串转换为字符数组的方法</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>2-代码片段</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>3-常用正则</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>4-tools</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>PWA</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>webSocket</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>web性能优化</span> <span class="arrow right"></span></p> <!----></section></li><li><a href="/javascript/使用.html" class="sidebar-link">开发中经常遇到的JavaScript问题整理(超实用)</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="javascript-函数式编程解析-上"><a href="#javascript-函数式编程解析-上" class="header-anchor">#</a> JavaScript 函数式编程解析（上）</h2> <h2 id="一些必要的概念"><a href="#一些必要的概念" class="header-anchor">#</a> 一些必要的概念</h2> <ol><li>纯函数（Pure Function）</li></ol> <blockquote><p>Pure function 意指相同的输入，永远会得到相同的输出，而且没有任何显著的副作用。</p></blockquote> <blockquote><p>纯函数就是数学里的函数，这也是函数式编程的全部。</p></blockquote> <ol><li>副作用</li></ol> <blockquote><p><em>副作用</em>是在计算结果的过程中，系统状态的一种改变，或是外部世界可观察的<em>交互作用</em>。</p></blockquote> <p>副作用可以包含，但不限于：</p> <ul><li><p>更改文件系统</p></li> <li><p>在资料库写入纪录</p></li> <li><p>发送一个 http 请求</p></li> <li><p>状态变化</p></li> <li><p>打印到屏幕/ log</p></li> <li><p>DOM 查询</p></li> <li><p>存取系统状态</p></li></ul> <p>概括来说，<strong>任何 function 与外部环境的交互都是副作用。</strong></p> <ol><li>柯里化（curry）</li></ol> <p>使用更少的参数调用一个函数，返回一个接受剩余参数的函数。举例如下：</p> <div class="language- extra-class"><pre class="language-text"><code>const add = x =&gt; y =&gt; x + y;
+
+const increment = add(1);
+
+const addTen = add(10);
+
+increment(2); // 3
+
+addTen(2); // 12
+</code></pre></div><h2 id="函数式编程的优势"><a href="#函数式编程的优势" class="header-anchor">#</a> 函数式编程的优势</h2> <ol><li><div class="language- extra-class"><pre class="language-text"><code> 确定性（可预测性、数据不可变），同样的输入必然得到相同的输出
+</code></pre></div></li> <li><div class="language- extra-class"><pre class="language-text"><code> 可以使用数学定律
+</code></pre></div></li></ol> <div class="language- extra-class"><pre class="language-text"><code>// 结合律（associative）
+
+add(add(x, y), z) === add(x, add(y, z));
+
+// 交换律（commutative）
+
+add(x, y) === add(y, x);
+
+// 同一律（identity）
+
+add(x, 0) === x;
+
+// 分配律（distributive）
+
+multiply(x, add(y,z)) === add(multiply(x, y), multiply(x, z));
+</code></pre></div><h2 id="函数式编程的适用场景"><a href="#函数式编程的适用场景" class="header-anchor">#</a> 函数式编程的适用场景</h2> <ul><li>可变状态（mutable state）</li> <li>不受限的副作用（unrestricted side effects）</li> <li>无原则设计（unprincipled design）</li></ul> <h2 id="函数是一等公民的意义"><a href="#函数是一等公民的意义" class="header-anchor">#</a> 函数是一等公民的意义</h2> <p>在 JavaScript 中，函数是一等公民，它意味着函数就跟其他任何数据类型一样，并没有什么特殊之处——可以存储在数组中，作为函数的参数传递、赋值给变量，等等。作为“一等公民”，函数的意义至少有如下几点：</p> <ol><li><div class="language- extra-class"><pre class="language-text"><code> 有助于减少不必要的重构
+</code></pre></div></li></ol> <div class="language- extra-class"><pre class="language-text"><code>// 如果renderPost功能发生变化，必须改变包装函数
+
+httpGet('/post/2', json =&gt; renderPost(json));
+
+// 例如增加一个err
+
+httpGet('/post/2', (json, err) =&gt; renderPost(json, err));
+
+
+// 如果我们把它写成一个一等公民函数，那么就不需要变了
+
+httpGet('/post/2', renderPost);
+</code></pre></div><ol><li><div class="language- extra-class"><pre class="language-text"><code> 有助于增加通用性和可重用性
+</code></pre></div></li></ol> <div class="language- extra-class"><pre class="language-text"><code>// 专门为特定的功能准备
+
+const validArticles = articles =&gt;
+
+  articles.filter(article =&gt; article !== null &amp;&amp; article !== undefined),
+
+// 看上去有无限的通用性和可重用性
+
+const compact = xs =&gt; xs.filter(x =&gt; x !== null &amp;&amp; x !== undefined);
+</code></pre></div><ol><li><div class="language- extra-class"><pre class="language-text"><code> 不需要使用 this，但是需要注意适配外部API
+</code></pre></div></li></ol> <div class="language- extra-class"><pre class="language-text"><code>const fs = require('fs');
+
+// scary
+
+fs.readFile('freaky_friday.txt', Db.save);
+
+// less so
+
+fs.readFile('freaky_friday.txt', Db.save.bind(Db));
+</code></pre></div><h3 id="纯函数的价值"><a href="#纯函数的价值" class="header-anchor">#</a> 纯函数的价值</h3> <ol><li><div class="language- extra-class"><pre class="language-text"><code> 可缓存
+</code></pre></div></li></ol> <div class="language- extra-class"><pre class="language-text"><code>const memoize = (f) =&gt; {
+
+  const cache = {};
+
+  return (...args) =&gt; {
+
+    const argStr = JSON.stringify(args);
+
+    cache[argStr] = cache[argStr] || f(...args);
+
+    return cache[argStr];
+
+  };
+
+};
+
+
+const squareNumber = memoize(x =&gt; x * x);
+
+squareNumber(4); // 16
+
+squareNumber(4); // 16, 返回输入4的缓存结果
+</code></pre></div><ol><li><div class="language- extra-class"><pre class="language-text"><code> 可移植性/自文档化（Portable / Self-documenting）
+</code></pre></div></li></ol> <div class="language- extra-class"><pre class="language-text"><code>// impure
+const signUp = (attrs) =&gt; {
+  const user = saveUser(attrs);
+  welcomeUser(user);
+};
+
+// pure
+const signUp = (Db, Email, attrs) =&gt; () =&gt; {
+  const user = saveUser(Db, attrs);
+  welcomeUser(Email, user);
+};
+</code></pre></div><p>纯函数把所有可能改变输出的变量<code>Db</code>和<code>Email</code>，都作为函数签名，这样我们就能知道函数是做什么的，依赖什么参数——提供了更多的信息。可移植性是 JS 的一个强大特性，函数会通过 socket 序列化并传输，意味着在 web worker 中我们可以运行所有代码。</p> <ol><li>可测试的（Testable）：利用特性，只需要给出输入和断言的输出即可。</li> <li>可推理的（Reasonable）：同理</li> <li>并行代码（Parallel Code）：由于不需要共享内存，所以可以并行处理纯函数</li></ol> <h2 id="柯里化-currying"><a href="#柯里化-currying" class="header-anchor">#</a> 柯里化（Currying）</h2> <div class="language- extra-class"><pre class="language-text"><code>// curry :: ((a, b, ...) -&gt; c) -&gt; a -&gt; b -&gt; ... -&gt; c
+function curry(fn) {
+  const arity = fn.length;
+  return function $curry(...args) {
+    if (args.length &lt; arity) {
+      return $curry.bind(null, ...args);
+    }
+
+    return fn.call(null, ...args);
+  };
+}
+
+const match = curry((what, s) =&gt; s.match(what));
+const replace = curry((what, replacement, s) =&gt; s.replace(what, replacement));
+const filter = curry((f, xs) =&gt; xs.filter(f));
+const map = curry((f, xs) =&gt; xs.map(f));
+</code></pre></div><p>通过以上的柯里化函数，我们可以把函数式编程变得简洁，没有冗余。尽管有多个参数，我们仍然可以保留数学函数的定义。</p> <div class="language- extra-class"><pre class="language-text"><code>match(/r/g, 'hello world'); // [ 'r' ]
+
+const hasLetterR = match(/r/g); // x =&gt; x.match(/r/g)
+hasLetterR('hello world'); // [ 'r' ]
+hasLetterR('just j and s and t etc'); // null
+filter(hasLetterR, ['rock and roll', 'smooth jazz']); // ['rock and roll']
+
+const removeStringsWithoutRs = filter(hasLetterR); // xs =&gt; xs.filter(x =&gt; x.match(/r/g))
+removeStringsWithoutRs(['rock and roll', 'smooth jazz', 'drum circle']); // ['rock and roll', 'drum circle']
+const noVowels = replace(/[aeiou]/ig); // (r,x) =&gt; x.replace(/[aeiou]/ig, r)
+const censored = noVowels('*'); // x =&gt; x.replace(/[aeiou]/ig, '*')
+censored('Chocolate Rain'); // 'Ch*c*l*t* R**n'
+</code></pre></div><h2 id="组合-composing"><a href="#组合-composing" class="header-anchor">#</a> 组合（Composing）</h2> <p>Composing 就是把函数像“管道”一样组合起来。下面展示最简单的组合示例。</p> <div class="language- extra-class"><pre class="language-text"><code>const composes = (f, g) =&gt; x =&gt; f(g(x));
+const toUpperCase = x =&gt; x.toUpperCase();
+const exclaim = x =&gt; `${x}!`;
+const shout = compose(exclaim, toUpperCase);
+
+shout('send in the clowns'); // &quot;SEND IN THE CLOWNS!&quot;
+</code></pre></div><p>以下是一个通用的 compose 函数：</p> <div class="language- extra-class"><pre class="language-text"><code>const compose = (...fns) =&gt; (...args) =&gt; fns.reduceRight((res, fn) =&gt; [fn.call(null, ...res)], args)[0];
+</code></pre></div><p>因为 compose 也是纯函数，同样满足分配律：</p> <div class="language- extra-class"><pre class="language-text"><code>// 满足分配律
+compose(f, compose(g, h)) === compose(compose(f, g), h);
+</code></pre></div><p>所以不管传参的顺序如何，它都返回相同的结果，非常强大 👍</p> <div class="language- extra-class"><pre class="language-text"><code>const arg = ['jumpkick', 'roundhouse', 'uppercut'];
+const lastUpper = compose(toUpperCase, head, reverse);
+const loudLastUpper = compose(exclaim, toUpperCase, head, reverse);
+
+lastUpper(arg); // 'UPPERCUT'
+loudLastUpper(arg); // 'UPPERCUT!'
+</code></pre></div><h2 id="pointfree-风格"><a href="#pointfree-风格" class="header-anchor">#</a> Pointfree 风格</h2> <p>Pointfree 的意思是<strong>不使用所要操作的数据，只合成运算过程</strong>。下面是使用<strong>Ramda</strong>[1]函数库的<code>pipe</code>方法实现 Pointfree 的例子，选自阮一峰老师的**《Pointfree 编程风格指南》**[2]。</p> <div class="language- extra-class"><pre class="language-text"><code>var str = 'Lorem ipsum dolor sit amet consectetur adipiscing elit';
+</code></pre></div><p>上面字符串最长的单词有多少个字符呢？先定义一些基本运算：</p> <div class="language- extra-class"><pre class="language-text"><code>// 以空格分割单词
+var splitBySpace = s =&gt; s.split(' ');
+
+// 每个单词的长度
+var getLength = w =&gt; w.length;
+
+// 词的数组转换成长度的数组
+var getLengthArr = arr =&gt; R.map(getLength, arr);
+
+// 返回较大的数字
+var getBiggerNumber = (a, b) =&gt; a &gt; b ? a : b;
+
+// 返回最大的一个数字
+var findBiggestNumber = arr =&gt; R.reduce(getBiggerNumber, 0, arr);
+</code></pre></div><p>然后把基本运算合成为一个函数：</p> <div class="language- extra-class"><pre class="language-text"><code>var getLongestWordLength = R.pipe(
+
+  splitBySpace,
+
+  getLengthArr,
+
+  findBiggestNumber
+
+);
+
+getLongestWordLength(str) // 11
+</code></pre></div><p>可以看到，整个运算由三个步骤构成，每个步骤都有语义化的名称，非常的清晰。这就是 Pointfree 风格的优势。Ramda 提供了很多现成的方法，可以直接使用这些方法，省得自己定义一些常用函数（查看<strong>完整代码</strong>[3]）。</p> <div class="language- extra-class"><pre class="language-text"><code>// 上面代码的另一种写法
+
+var getLongestWordLength = R.pipe(
+
+  R.split(' '),
+
+  R.map(R.length),
+
+  R.reduce(R.max, 0)
+
+);
+</code></pre></div><p>再看一个实战的例子，拷贝自 Scott Sauyet 的文章**《Favoring Curry》<strong>[4]。那篇文章能帮助你深入理解柯里化，强烈推荐阅读。下面是一段服务器返回的 JSON 数据。<img src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" alt="图片">现在要求是，找到用户 Scott 的所有未完成任务，并按到期日期升序排列。<img src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" alt="图片">过程式编程的代码如下（查看</strong>完整代码**[5]）。<img src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" alt="图片">上面代码不易读，出错的可能性很大。现在使用 Pointfree 风格改写（查看<strong>完整代码</strong>[6]）。</p> <div class="language- extra-class"><pre class="language-text"><code>const getIncompleteTaskSummaries = (name) =&gt; {
+
+  return fetchData()
+
+          .then(R.prop('tasks'))
+
+          .then(R.filter(R.propEq('username', name)))
+
+          .then(R.reject(R.propEq('complete', true)))
+
+          .then(R.map(R.pick(['id', 'dueDate', 'title', 'priority'])))
+
+          .then(R.sortBy(R.prop('dueDate')))
+
+}
+</code></pre></div><p>上面代码就变得清晰很多了。</p> <h2 id="常用-pointfree-纯函数的实现"><a href="#常用-pointfree-纯函数的实现" class="header-anchor">#</a> 常用 Pointfree 纯函数的实现</h2> <p>下面的实现仅仅为了基本演示，如果考虑实际开发，请参考<strong>ramda</strong>[7],<strong>lodash</strong>[8], 或<strong>folktale</strong>[9]。</p> <div class="language- extra-class"><pre class="language-text"><code>// curry :: ((a, b, ...) -&gt; c) -&gt; a -&gt; b -&gt; ... -&gt; c
+
+function curry(fn) {
+
+  const arity = fn.length;
+
+  return function $curry(...args) {
+    if (args.length &lt; arity) {
+      return $curry.bind(null, ...args);
+    }
+
+    return fn.call(null, ...args);
+
+  };
+
+}
+
+
+// compose :: ((y -&gt; z), (x -&gt; y),  ..., (a -&gt; b)) -&gt; a -&gt; z
+const compose = (...fns) =&gt; (...args) =&gt; fns.reduceRight((res, fn) =&gt; [fn.call(null, ...res)], args)[0];
+
+// forEach :: (a -&gt; ()) -&gt; [a] -&gt; ()
+const forEach = curry((fn, xs) =&gt; xs.forEach(fn));
+
+// map :: Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+
+const map = curry((fn, f) =&gt; f.map(fn));
+
+// reduce :: (b -&gt; a -&gt; b) -&gt; b -&gt; [a] -&gt; b
+
+const reduce = curry((fn, zero, xs) =&gt; xs.reduce(fn, zero));
+
+// replace :: RegExp -&gt; String -&gt; String -&gt; String
+
+const replace = curry((re, rpl, str) =&gt; str.replace(re, rpl));
+
+// sortBy :: Ord b =&gt; (a -&gt; b) -&gt; [a] -&gt; [a]
+
+const sortBy = curry((fn, xs) =&gt; xs.sort((a, b) =&gt; {
+
+  if (fn(a) === fn(b)) {
+
+    return 0;
+
+  }
+
+  return fn(a) &gt; fn(b) ? 1 : -1;
+
+}));
+
+
+// prop :: String -&gt; Object -&gt; a
+
+const prop = curry((p, obj) =&gt; obj[p]);
+</code></pre></div><p>关于更多 Pointfree 纯函数的实现可以参考<strong>Pointfree Utilities</strong>[10]。</p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">5/27/2022, 9:36:39 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/javascript/1-重要类型/Set.html" class="prev">
+        Set
+      </a></span> <span class="next"><a href="/javascript/1-重要类型/function.html">
+        函数
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/assets/js/app.69b8f0a4.js" defer></script><script src="/assets/js/2.e21ead49.js" defer></script><script src="/assets/js/31.8f66e0d8.js" defer></script>
+  </body>
+</html>
